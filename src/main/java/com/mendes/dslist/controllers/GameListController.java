@@ -2,6 +2,7 @@ package com.mendes.dslist.controllers;
 
 import com.mendes.dslist.dto.GameListDTO;
 import com.mendes.dslist.dto.GameMinDTO;
+import com.mendes.dslist.dto.ReplacementDTO;
 import com.mendes.dslist.entities.GameList;
 import com.mendes.dslist.services.GameListServices;
 import com.mendes.dslist.services.GameServices;
@@ -28,6 +29,11 @@ public class GameListController {
     public List<GameMinDTO> findByList(@PathVariable Long listId) {
         List<GameMinDTO> result = gameServices.findByList(listId);
         return result;
+    }
+
+    @PostMapping(value = "/{listId}/replacement")
+    public void move(@PathVariable Long listId, @RequestBody ReplacementDTO body) {
+        gameListServices.move(listId, body.getSourceIndex(), body.getDestinationIndex());
     }
 
 }
