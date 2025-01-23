@@ -1,7 +1,6 @@
 package com.mendes.dslist.dto;
 
 import com.mendes.dslist.entities.GameList;
-import org.springframework.beans.BeanUtils;
 
 public class GameListDTO {
 

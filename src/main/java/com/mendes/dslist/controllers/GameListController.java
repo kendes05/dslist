@@ -3,7 +3,6 @@ package com.mendes.dslist.controllers;
 import com.mendes.dslist.dto.GameListDTO;
 import com.mendes.dslist.dto.GameMinDTO;
 import com.mendes.dslist.dto.ReplacementDTO;
-import com.mendes.dslist.entities.GameList;
 import com.mendes.dslist.services.GameListServices;
 import com.mendes.dslist.services.GameServices;
 import org.springframework.beans.factory.annotation.Autowired;

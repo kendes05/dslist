@@ -2,7 +2,6 @@ package com.mendes.dslist.controllers;
 
 import com.mendes.dslist.dto.GameDTO;
 import com.mendes.dslist.dto.GameMinDTO;
-import com.mendes.dslist.entities.Game;
 import com.mendes.dslist.services.GameServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

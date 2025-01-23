@@ -2,7 +2,6 @@ package com.mendes.dslist.services;
 
 import com.mendes.dslist.dto.GameListDTO;
 
-import com.mendes.dslist.dto.GameMinDTO;
 import com.mendes.dslist.entities.GameList;
 import com.mendes.dslist.projections.GameMinProjection;
 import com.mendes.dslist.repositories.GameListRepository;
