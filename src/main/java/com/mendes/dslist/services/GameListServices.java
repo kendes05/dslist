@@ -29,6 +29,12 @@ public class GameListServices {
 
     }
 
+    @Transactional(readOnly = true)
+    public GameListDTO findById(Long id){
+       GameList result = gameListRepository.findById(id).get();
+       return new GameListDTO(result);
+    }
+
     @Transactional
     public void move(Long listId, int sourceIndex, int destinationIndex) {
 

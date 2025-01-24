@@ -2,20 +2,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     const params = new URLSearchParams(window.location.search);
     const listID = params.get("listID");
     const apiUrl = `http://localhost:8080/lists/${listID}/games`;
-    console.log("1")
-    exibirJogos(apiUrl)
+    const response = await fetch(`http://localhost:8080/lists/${listID}`);
+    const data = await response.json();
+    const collectionTitle = document.getElementById("title-collection");
+    collectionTitle.innerHTML = data.name;
+    exibirJogos(apiUrl,listID)
 })
 
-async function exibirJogos(api) {
+async function exibirJogos(api,listID) {
     try {
-        console.log("2")
         const response = await fetch(api);
         const data = await response.json();
+
         
         data.forEach(item => {
             
             const gameDiv = document.createElement('div');
             gameDiv.classList.add('game');
+            gameDiv.setAttribute("data-id",item.id)
         
             const img = document.createElement('img');
             img.classList.add('game-img');
@@ -42,6 +46,12 @@ async function exibirJogos(api) {
             
             gameDiv.appendChild(img);
             gameDiv.appendChild(detailsDiv);
+
+            gameDiv.addEventListener("click",()=>{
+                const gameID = gameDiv.getAttribute("data-id");
+                window.location.href = `game.html?gameID=${gameID}`;
+            });
+
             
             const mainContentDiv = document.getElementById("main-content")
             

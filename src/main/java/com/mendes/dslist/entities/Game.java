@@ -95,21 +95,22 @@ public class Game {
         this.longDescription = longDescription;
     }
 
-    public String getImageUrl() {
-        return imgUrl;
-    }
-
-    public void setImageUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
-    }
-
-    public String getPlatform() {
+    public String getPlatforms() {
         return platforms;
     }
-
-    public void setPlatform(String platforms) {
+    
+    public void setPlatforms(String platforms) {
         this.platforms = platforms;
     }
+    
+    public String getImgUrl() {
+        return imgUrl;
+    }
+    
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+    
 
     @Override
     public boolean equals(Object o) {

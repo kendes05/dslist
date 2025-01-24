@@ -18,7 +18,7 @@ public class GameMinDTO {
         id = game.getId();
         title = game.getTitle();
         shortDescription = game.getShortDescription();
-        imgUrl = game.getImageUrl();
+        imgUrl = game.getImgUrl();
         year = game.getYear();
     }
 

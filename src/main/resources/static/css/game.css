@@ -1,0 +1,75 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    margin: 0;
+    width: 100%;
+    background-color: rgb(218, 218, 218);
+}
+#nav-bar{
+    background-color: rgb(1, 36, 66);
+    padding: 25px;
+    margin-bottom: 30px;
+}
+h2{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#display-flex{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+}
+#main-content{
+    padding: 10px 20px;
+    width:55%;
+    height: 450px;
+    border-radius: 10px;
+    background-color: white;
+    max-width: 55%;
+    max-height: 450px;
+}
+
+#game-img-details{
+    display: flex;
+}
+
+#img{
+    height: 300px;
+    width: 264px;
+    padding-top: 10px;
+}
+img{
+    height: 300px;
+    object-fit:fill
+}
+
+h3{
+    font-weight: bolder;
+    color: rgb(3, 134, 185);
+}
+span{
+    color: black;
+    font-size: medium;
+    font-weight: 100;
+}
+#game-year{
+    margin-bottom: 3px;
+}
+#game-title{
+    margin-top: 3px;
+    margin-bottom: 30px;
+}
+#game-platforms{
+    margin-top: 5px;
+}
+#game-genre{
+    margin-bottom: 5px;
+}
