@@ -1,25 +1,26 @@
-const apiUrl = 'http://localhost:8080/games';
-console.log("cheguei 1");
+document.addEventListener("DOMContentLoaded", async () => {
+    const params = new URLSearchParams(window.location.search);
+    const listID = params.get("listID");
+    const apiUrl = `http://localhost:8080/lists/${listID}/games`;
+    console.log("1")
+    exibirJogos(apiUrl)
+})
 
-async function exibirJogos() {
+async function exibirJogos(api) {
     try {
-        console.log("cheguei 2");
-        const response = await fetch(apiUrl);
+        console.log("2")
+        const response = await fetch(api);
         const data = await response.json();
         
         data.forEach(item => {
             
             const gameDiv = document.createElement('div');
             gameDiv.classList.add('game');
-            
-            const imgDiv = document.createElement('div');
-            imgDiv.classList.add('img');
-            
+        
             const img = document.createElement('img');
             img.classList.add('game-img');
-            img.src = "";
+            img.src = item.imgUrl;
             img.alt = '';
-            imgDiv.appendChild(img);
             
             const detailsDiv = document.createElement('div');
             detailsDiv.classList.add('game-details');
@@ -39,7 +40,7 @@ async function exibirJogos() {
             year.textContent = item.year; 
             detailsDiv.appendChild(year);
             
-            gameDiv.appendChild(imgDiv);
+            gameDiv.appendChild(img);
             gameDiv.appendChild(detailsDiv);
             
             const mainContentDiv = document.getElementById("main-content")
@@ -49,7 +50,6 @@ async function exibirJogos() {
         
         
     } catch (error) {
-        console.log("deu bosta")
+        console.log(error)
     }
 }
-document.addEventListener('DOMContentLoaded',exibirJogos);

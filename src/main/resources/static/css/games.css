@@ -33,12 +33,18 @@ h1{
     height: 130px;
     border-radius: 10px;
     margin-bottom: 10px;
+    animation: none;
 }
-.img{
+.game:hover{
+    animation: hoverEffect 0.2s ease-out forwards;
+    cursor: pointer;
+}
+.game-img{
     max-height: 150px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     background-color: black;
+    object-fit: cover;
     width: 125px;
 }
 .game-details{
@@ -60,3 +66,11 @@ h1{
     font-weight: bold;
 }
 
+@keyframes hoverEffect {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        transform: translateY(-3px) scale(1.05);
+    }
+}
