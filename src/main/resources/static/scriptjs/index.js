@@ -1,7 +1,7 @@
 const apiUrl = 'http://localhost:8080/lists';
 
 async function exibirListas() {
-    const collectionDiv = document.querySelector('.collection');
+    const collectionDiv = document.querySelector('#collection');
     collectionDiv.innerHTML = '';
     try {
         const response = await fetch(apiUrl);
@@ -17,7 +17,8 @@ async function exibirListas() {
     catch (error){
         const h1 = document.createElement('h1');
         h1.textContent = 'Erro ao carregar listas';
+        collectionDiv.appendChild(h1);
     }
 
 }
-window.onload = exibirListas;
+document.addEventListener('DOMContentLoaded', exibirListas);
