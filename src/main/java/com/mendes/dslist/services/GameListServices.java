@@ -36,6 +36,13 @@ public class GameListServices {
     }
 
     @Transactional
+    public void addGameList(GameList gameList){
+        gameListRepository.save(gameList);
+    }
+
+
+
+    @Transactional
     public void move(Long listId, int sourceIndex, int destinationIndex) {
 
         List<GameMinProjection> list = gameRepository.searchByList(listId);

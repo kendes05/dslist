@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 @RestController
 @RequestMapping(value = "/lists")
@@ -38,6 +36,12 @@ public class GameListController {
     public GameListDTO findById(@PathVariable Long listId) {
         return gameListServices.findById(listId);
     }
+
+    @PostMapping
+    public void addGameList(@RequestBody GameList gameList) {
+        gameListServices.addGameList(gameList);
+    }
+
 
     @PostMapping(value = "/{listId}/replacement")
     public void move(@PathVariable Long listId, @RequestBody ReplacementDTO body) {
