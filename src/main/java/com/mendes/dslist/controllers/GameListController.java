@@ -52,4 +52,9 @@ public class GameListController {
         gameListServices.move(listId, body.getSourceIndex(), body.getDestinationIndex());
     }
 
+    @PutMapping(value = "{id}")
+    public void updateGameList(@PathVariable Long id, @RequestBody GameList gameList) {
+        gameListServices.updateGameListById(id, gameList.getName());
+    }
+
 }

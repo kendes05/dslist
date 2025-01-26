@@ -50,6 +50,13 @@ public class GameListServices {
     }
 
     @Transactional
+    public void updateGameListById(Long id, String name){
+        GameList gameList = gameListRepository.findById(id).get();
+        gameList.setName(name);
+        gameListRepository.save(gameList);
+    }
+
+    @Transactional
     public void move(Long listId, int sourceIndex, int destinationIndex) {
 
         List<GameMinProjection> list = gameRepository.searchByList(listId);

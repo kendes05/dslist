@@ -27,14 +27,26 @@
         </div>
     </div>
 
-    <div id="popup" class="popup hidden">
+    <div id="add-popup" class="popup hidden">
         <div class="popup-content">
           <h3>Adicionar nova coleção</h3>
-          <input type="text" id="collection-name" placeholder="Digite o nome da coleção" />
-          <button id="send">Enviar</button>
-          <button id="close-popup">Fechar</button>
+          <input type="text" id="add-input" placeholder="Digite o nome da coleção" />
+          <button id="send-add-button">Enviar</button>
+          <button id="close-add-button">Fechar</button>
         </div>
-      </div>
+    </div>
+
+    <div id="rename-popup" class="popup hidden">
+        <div class="popup-content">
+          <h3>Renomear coleção</h3>
+          <input type="text" id ="rename-input" placeholder="Digite o novo nome da coleção" />
+          <button id="send-rename-button">Salvar</button>
+          <button id="close-rename-button">Fechar</button>
+        </div>
+    </div>
+
+
+
     <script src="../static/scriptjs/index.js"></script>
 </body>
 </html>
