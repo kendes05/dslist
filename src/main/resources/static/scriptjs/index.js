@@ -1,4 +1,40 @@
 const apiUrl = 'http://localhost:8080/lists';
+const openPopup = document.getElementById("add-collection");
+const closePopupButton = document.getElementById("close-popup");
+const popup = document.getElementById("popup");
+const sendButton = document.getElementById("send");
+const collectionNameInput = document.getElementById("collection-name");
+
+openPopup.addEventListener("click", () => {
+    popup.classList.remove("hidden");
+});
+
+closePopupButton.addEventListener("click", () => {
+    popup.classList.add("hidden");
+});
+
+sendButton.addEventListener("click", () => {
+    const collectionName = collectionNameInput.value.trim();
+    console.log("oi")
+    adicionarLista(collectionName);
+})
+
+async function adicionarLista(nome) {
+    try {
+        const response = await fetch(apiUrl,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name:nome})
+        })
+        popup.classList.add("hidden")
+        window.location.reload();
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 document.addEventListener('DOMContentLoaded', exibirListas);
 
