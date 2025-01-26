@@ -4,6 +4,7 @@ import com.mendes.dslist.dto.GameListDTO;
 
 import com.mendes.dslist.entities.GameList;
 import com.mendes.dslist.projections.GameMinProjection;
+import com.mendes.dslist.repositories.BelongingRepository;
 import com.mendes.dslist.repositories.GameListRepository;
 import com.mendes.dslist.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class GameListServices {
     private GameListRepository gameListRepository;
     @Autowired
     private GameRepository gameRepository;
+    @Autowired
+    private BelongingRepository belongingRepository;
 
 
 
@@ -40,7 +43,11 @@ public class GameListServices {
         gameListRepository.save(gameList);
     }
 
-
+    @Transactional
+    public void deleteGameListById(Long id){
+        belongingRepository.deleteByGameListId(id);
+        gameListRepository.deleteById(id);
+    }
 
     @Transactional
     public void move(Long listId, int sourceIndex, int destinationIndex) {

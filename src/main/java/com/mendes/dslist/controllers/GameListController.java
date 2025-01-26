@@ -42,6 +42,10 @@ public class GameListController {
         gameListServices.addGameList(gameList);
     }
 
+    @DeleteMapping(value = "{id}")
+    public void deleteGameListById(@PathVariable Long id) {
+        gameListServices.deleteGameListById(id);
+    }
 
     @PostMapping(value = "/{listId}/replacement")
     public void move(@PathVariable Long listId, @RequestBody ReplacementDTO body) {
