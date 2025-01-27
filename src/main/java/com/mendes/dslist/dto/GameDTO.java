@@ -92,5 +92,19 @@ public class GameDTO {
     public void setPlatforms(String platforms) {
         this.platforms = platforms;
     }
+
+    public Game dtoToGame(){
+        Game game = new Game();
+        game.setTitle(this.title);
+        game.setYear(this.year);
+        game.setLongDescription(this.longDescription);
+        game.setGenre(this.genre);
+        game.setScore(this.score);
+        game.setImgUrl(this.imgUrl);
+        game.setPlatforms(this.platforms);
+        game.setShortDescription(this.shortDescription);
+        game.setId(this.id);
+        return game;
+    }
 }
 

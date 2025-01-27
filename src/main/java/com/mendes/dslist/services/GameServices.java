@@ -4,6 +4,7 @@ import com.mendes.dslist.dto.GameDTO;
 import com.mendes.dslist.dto.GameMinDTO;
 import com.mendes.dslist.entities.Game;
 import com.mendes.dslist.projections.GameMinProjection;
+import com.mendes.dslist.repositories.BelongingRepository;
 import com.mendes.dslist.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,8 @@ public class GameServices {
     @Autowired
     private GameRepository gameRepository;
     @Autowired
+    private BelongingRepository belongingRepository;
+
     @Transactional(readOnly = true)
     public List<GameMinDTO> findAll() {
         List<Game> result = gameRepository.findAll();
@@ -35,6 +38,11 @@ public class GameServices {
     public GameDTO findById(Long id) {
         Game result = gameRepository.findById(id).get();
         return new GameDTO(result);
+    }
+
+    public void addGame(Game game, Long listId) {
+        gameRepository.save(game);
+        belongingRepository.addGame(game.getId(), listId);
     }
 
 

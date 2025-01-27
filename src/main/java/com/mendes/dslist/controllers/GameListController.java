@@ -1,16 +1,18 @@
 package com.mendes.dslist.controllers;
 
+import com.mendes.dslist.dto.GameDTO;
 import com.mendes.dslist.dto.GameListDTO;
 import com.mendes.dslist.dto.GameMinDTO;
 import com.mendes.dslist.dto.ReplacementDTO;
+import com.mendes.dslist.entities.Game;
 import com.mendes.dslist.entities.GameList;
 import com.mendes.dslist.services.GameListServices;
 import com.mendes.dslist.services.GameServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping(value = "/lists")
@@ -50,6 +52,12 @@ public class GameListController {
     @PostMapping(value = "/{listId}/replacement")
     public void move(@PathVariable Long listId, @RequestBody ReplacementDTO body) {
         gameListServices.move(listId, body.getSourceIndex(), body.getDestinationIndex());
+    }
+
+    @Transactional
+    @PostMapping(value = "/{listId}/games")
+    public void addGame(@RequestBody Game game,@PathVariable Long listId) {
+        gameServices.addGame(game,listId);
     }
 
     @PutMapping(value = "{id}")
