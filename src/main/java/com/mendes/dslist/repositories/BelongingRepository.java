@@ -18,4 +18,9 @@ public interface BelongingRepository extends JpaRepository<Belonging, BelongingP
            "VALUES ((SELECT COALESCE(MAX(position), -1) + 1 FROM tb_belonging WHERE list_id = :list_id), :game_id, :list_id)")
             void addGame(Long game_id, Long list_id);
 
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "DELETE FROM tb_belonging WHERE game_id =:game_id")
+    void deleteGame(Long game_id);
+
 }

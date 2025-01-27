@@ -56,8 +56,8 @@ public class GameListController {
 
     @Transactional
     @PostMapping(value = "/{listId}/games")
-    public void addGame(@RequestBody Game game,@PathVariable Long listId) {
-        gameServices.addGame(game,listId);
+    public void addGame(@RequestBody GameDTO dto,@PathVariable Long listId) {
+        gameServices.addGame(dto,listId);
     }
 
     @PutMapping(value = "{id}")

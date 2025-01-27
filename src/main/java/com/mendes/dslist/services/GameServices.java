@@ -40,10 +40,15 @@ public class GameServices {
         return new GameDTO(result);
     }
 
-    public void addGame(Game game, Long listId) {
+    public void addGame(GameDTO dto, Long listId) {
+        Game game = dto.dtoToGame();
         gameRepository.save(game);
         belongingRepository.addGame(game.getId(), listId);
     }
 
-
+    public void deleteGameById(Long id) {
+        Game game = gameRepository.findById(id).get();
+        belongingRepository.deleteGame(id);
+        gameRepository.delete(game);
+    }
 }
